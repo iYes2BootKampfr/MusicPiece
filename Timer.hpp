@@ -3,18 +3,18 @@
 
 #include <chrono> // Required for std::chrono functions
 
-// Timer class definition
+// The Timer class is used to measure the elapsed time of a process
 class Timer
 {
 public:
-    Timer() = default;  // Default constructor
-    ~Timer() = default; // Default destructor
+    Timer();  // Constructor, initializes the timer
+    ~Timer(); // Destructor
 
     void Start();   // Method to start the timer
-    int64_t Stop(); // Method to stop the timer and return the elapsed time in microseconds
+    int64_t Stop(); // Method to stop the timer and return the elapsed time in nanoseconds
 
 private:
-    // Store the start time. The type is auto-deduced to be std::chrono::time_point
+    // Store the start time. The type is std::chrono::time_point using the high_resolution_clock
     std::chrono::time_point<std::chrono::high_resolution_clock> start_;
 };
 
